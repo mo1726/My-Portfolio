@@ -21,23 +21,22 @@
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </div>
-    <div class="home">
+    <div class="home slide-up">
       <h6>I'm a</h6>
       <h1>FULL STACK SOFTWARE DEVELOPER<span>.</span></h1>
       <button class="previous-projects" onclick="location.href='#portfolio'">Previous Projects</button>
     </div>
+    
     <div class="about" id="about">
-      <div class="image1">
+      <div class="image1 slide-up">
         <img src="WhatsApp Image 2024-09-03 at 11.33.10_88382be2.jpg" alt="Profile Picture" />
       </div>
-      <div class="info">
+      <div class="info fade-in">
         <h3>ABOUT ME</h3>
         <p>
           I'm Mouhcin Lahrech, a Full Stack Developer with a diploma in Digital Development from ISTA (OFPPT). I
           specialize in front-end development and have solid back-end skills. I aim to create innovative web experiences
           that combine clean design with cutting-edge technology.
-
-
         </p>
         <button class="hire-me" onclick="location.href='mailto:mouhcinlahrech1@gmail.com'">HIRE ME</button>
         <button class="resume" onclick="location.href='path-to-resume.pdf'">RESUME</button>
@@ -239,8 +238,8 @@
     <div class="contact-container" id="contact">
       <div class="left-section">
         <h2>Drop Me a Message</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-          industry's.</p>
+        <p>Feel free to reach out to me with any questions or collaboration ideas. I'm always open to new opportunities and would love to hear from you!</p>
+
 
         <div class="contact-item">
           <i class="fas fa-phone"></i>
@@ -252,7 +251,7 @@
         </div>
         <div class="contact-item">
           <i class="fas fa-map-marker-alt"></i>
-          <p>House No: 07 Rafsar Town, Mirpurkhas, 69000, Sindh Pakistan</p>
+          <p>RES EL HOUDA IMM 3 AV MOHAMED BOUZIANE CASABLANCA</p>
         </div>
       </div>
 
@@ -272,8 +271,8 @@
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/mouhcin-lahrech-425a8424b/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/mo1726"><i class="fab fa-github"></i></a>
       </div>
     </footer>
   </div>
@@ -312,6 +311,41 @@
       // Scroll back to the portfolio section smoothly
       document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+    // Function to detect when element is in view
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Add class to trigger animations
+function animateOnScroll() {
+  const fadeElements = document.querySelectorAll('.fade-in');
+  const slideElements = document.querySelectorAll('.slide-up');
+
+  fadeElements.forEach(element => {
+    if (isInViewport(element)) {
+      element.classList.add('visible');
+    }
+  });
+
+  slideElements.forEach(element => {
+    if (isInViewport(element)) {
+      element.classList.add('visible');
+    }
+  });
+}
+
+// Listen for scroll event
+window.addEventListener('scroll', animateOnScroll);
+
+// Initial trigger for elements in view on page load
+animateOnScroll();
+
   </script>
 </body>
 
